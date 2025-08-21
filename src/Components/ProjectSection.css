@@ -1,0 +1,68 @@
+#portfolio {
+  position: relative;
+  scroll-snap-align: start;
+}
+
+#portfolio h2 {
+  letter-spacing: 1px;
+}
+
+.project-img-placeholder {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #d9e7ff;
+  transition: all 0.3s ease;
+}
+
+.project-img-placeholder:hover {
+  background: linear-gradient(135deg, #d6ebff, #edf5ff);
+  color: #0a58ca;
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 1rem !important;
+  background: #ffffff;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(3, 150, 255, 0.15);
+}
+
+.card h5 {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.card ul {
+  padding-left: 1.2rem;
+}
+
+.card ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  list-style-type: disc;
+}
+
+.card .btn {
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.card .btn:hover {
+  background: #0396ff;
+  color: #ffffff;
+  border-color: #0396ff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .project-img-placeholder {
+    height: 140px;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,99 @@
+/* Active Sidebar Item */
+.active-item {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Inactive Sidebar Item */
+.inactive-item {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.inactive-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transform: scale(1.03);
+}
+
+/* Hover scale for icons */
+.hover-scale:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left; 
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+/* Sidebar animations */
+.sidebar-item {
+  opacity: 0;
+  transform: translateX(-15px);
+  transition: all 0.3s ease;
+}
+
+.sidebar-open .sidebar-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Social links fade in */
+.social-links {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.3s ease;
+}
+
+.sidebar-open .social-links {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Active button glow */
+.active-glow {
+  box-shadow: 0 0 12px rgba(13, 110, 253, 0.7);
+  transition: box-shadow 0.3s ease;
+}

@@ -1,0 +1,207 @@
+import { useState } from "react";
+import { Menu, X, Github, Linkedin, Instagram } from "lucide-react";
+
+export default function SidebarSection({ menuItems, active, setActive, progress }) {
+  const [open, setOpen] = useState(false);
+
+  const socialLinks = {
+    github: "https://github.com/dhruvpatel1403",
+    linkedin: "https://www.linkedin.com/in/dhruv-patel-7997aa24a",
+    instagram: "https://instagram.com/dhruvpatel_1403",
+  };
+
+  return (
+    <div
+      className="d-flex flex-column position-fixed"
+      style={{
+        width: open ? "240px" : "72px",
+        transition: "width 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
+        top: 0,
+        left: 0,
+        bottom: 0,
+        background: "linear-gradient(180deg, #ffffff, #f9fafc)",
+        borderRight: "1px solid rgba(0,0,0,0.08)",
+        boxShadow: "2px 0 18px rgba(0,0,0,0.1)",
+        zIndex: 1000,
+        overflow: "hidden",
+      }}
+    >
+      {/* Header with toggle */}
+      <div className="d-flex align-items-center justify-content-between p-3 border-bottom">
+        {open && (
+          <h1 className="h5 mb-0 fw-bold" style={{ color: "#182848" }}>
+            Portfolio
+          </h1>
+        )}
+        <button
+          onClick={() => setOpen(!open)}
+          style={{
+            width: "38px",
+            height: "38px",
+            border: "none",
+            borderRadius: "50%",
+            background: "#e6f0ff",
+            color: "#182848",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            transition: "all 0.3s ease",
+            cursor: "pointer",
+          }}
+        >
+          {open ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </div>
+
+      {/* Menu */}
+      <ul className="list-unstyled flex-grow-1 mt-3 px-2">
+        {menuItems.map((item, i) => {
+          const isActive = active === item.name;
+          return (
+            <li
+              key={i}
+              onClick={() => {
+                document.getElementById(item.name).scrollIntoView({ behavior: "smooth" });
+                setActive(item.name);
+              }}
+              className="d-flex align-items-center mb-2 p-2 rounded-3 fw-medium"
+              style={{
+                cursor: "pointer",
+                background: isActive
+                  ? "linear-gradient(90deg, #f0f4ff, #d9e7ff)"
+                  : "transparent",
+                color: isActive ? "#174ea6" : "#42506a",
+                fontWeight: isActive ? "600" : "400",
+                transform: isActive ? "scale(1.08)" : "scale(1)",
+                boxShadow: isActive ? "0 4px 14px rgba(23,78,166,0.25)" : "none",
+                transition: "all 0.35s ease",
+              }}
+              onMouseEnter={(e) => {
+                if (!isActive) {
+                  e.currentTarget.style.backgroundColor = "#eef4ff";
+                  e.currentTarget.style.transform = "scale(1.05)";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isActive) {
+                  e.currentTarget.style.backgroundColor = "transparent";
+                  e.currentTarget.style.transform = "scale(1)";
+                }
+              }}
+            >
+              <span style={{ width: "24px", display: "flex", justifyContent: "center" }}>
+                {item.icon}
+              </span>
+              <span
+                className="ms-2"
+                style={{
+                  opacity: open ? 1 : 0,
+                  transition: "opacity 0.35s ease, color 0.35s ease",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {item.name}
+              </span>
+            </li>
+          );
+        })}
+      </ul>
+
+      {/* Progress bar */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          width: "6px",
+          height: "100%",
+          background: "rgba(0,0,0,0.05)",
+          borderRadius: "4px",
+        }}
+      >
+        <div
+          style={{
+            width: "100%",
+            height: `${progress}%`,
+            background: "linear-gradient(180deg, #174ea6, #5a9bff)",
+            transition: "height 0.2s linear",
+            borderRadius: "4px",
+          }}
+        />
+      </div>
+
+      {/* Social icons */}
+      <div className="d-flex justify-content-center gap-3 p-3 border-top">
+        <a
+          href={socialLinks.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            border: "none",
+            background: "#e6f0ff",
+            borderRadius: "50%",
+            padding: "6px",
+            color: "#182848",
+            transition: "all 0.3s ease",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "#d6e8ff";
+            e.currentTarget.style.transform = "scale(1.1)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "#e6f0ff";
+            e.currentTarget.style.transform = "scale(1)";
+          }}
+        >
+          <Github size={18} />
+        </a>
+        <a
+          href={socialLinks.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            border: "none",
+            background: "#e6f0ff",
+            borderRadius: "50%",
+            padding: "6px",
+            color: "#182848",
+            transition: "all 0.3s ease",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "#d6e8ff";
+            e.currentTarget.style.transform = "scale(1.1)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "#e6f0ff";
+            e.currentTarget.style.transform = "scale(1)";
+          }}
+        >
+          <Linkedin size={18} />
+        </a>
+        <a
+          href={socialLinks.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            border: "none",
+            background: "#e6f0ff",
+            borderRadius: "50%",
+            padding: "6px",
+            color: "#182848",
+            transition: "all 0.3s ease",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "#d6e8ff";
+            e.currentTarget.style.transform = "scale(1.1)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "#e6f0ff";
+            e.currentTarget.style.transform = "scale(1)";
+          }}
+        >
+          <Instagram size={18} />
+        </a>
+      </div>
+    </div>
+  );
+}
