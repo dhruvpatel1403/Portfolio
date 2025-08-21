@@ -18,22 +18,18 @@ const highlights = [
   },
 ];
 
-// Variants for smooth entry
 const fadeDown = {
   hidden: { opacity: 0, y: -40 },
   show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 20 } },
 };
-
 const fadeLeft = {
   hidden: { opacity: 0, x: -80 },
   show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 90, damping: 18 } },
 };
-
 const fadeRight = {
   hidden: { opacity: 0, x: 80 },
   show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 90, damping: 18 } },
 };
-
 const fadeUp = {
   hidden: { opacity: 0, y: 60 },
   show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 18 } },
@@ -42,13 +38,13 @@ const fadeUp = {
 export default function AboutSection() {
   return (
     <div
-      className="d-flex justify-content-center align-items-center w-100"
+      className="d-flex justify-content-center align-items-center w-100 px-3"
       style={{ minHeight: "100vh", background: "#f5f7fa" }}
     >
       <Card
-        className="shadow-lg border-0 rounded-4 p-4"
+        className="shadow-lg border-0 rounded-4 p-4 w-100"
         style={{
-          maxWidth: "900px",
+          maxWidth: "1000px",
           background: "linear-gradient(135deg, #ffffff 85%, #f0f7ff 100%)",
         }}
       >
@@ -65,22 +61,23 @@ export default function AboutSection() {
             About <span style={{ color: "#0396ff" }}>Me</span>
           </motion.h2>
 
-          {/* Vision-Driven Summary */}
+          {/* Summary */}
           <motion.p
-            className="lead mb-4 text-center"
-            style={{ lineHeight: "1.8", color: "#34435e", fontSize: "1.1rem" }}
+            className="lead mb-4 text-center px-2"
+            style={{ lineHeight: "1.8", color: "#34435e", fontSize: "1.05rem" }}
             variants={fadeLeft}
             initial="hidden"
             whileInView="show"
             viewport={{ once: false, amount: 0.3 }}
           >
-            Every line of code I write begins with a <span className="fw-semibold text-primary">bigger vision</span>.  
-            My work lives at the intersection of <strong>software</strong> and <strong>systems</strong> — building
-            products that not only work but also scale and endure.  
+            Every line of code I write begins with a{" "}
+            <span className="fw-semibold text-primary">bigger vision</span>.  
+            My work lives at the intersection of <strong>software</strong> and{" "}
+            <strong>systems</strong> — building products that not only work but also scale and endure.
           </motion.p>
 
           <motion.p
-            className="mb-4 text-center"
+            className="mb-4 text-center px-2"
             style={{ lineHeight: "1.8", color: "#42506a", fontSize: "1rem" }}
             variants={fadeRight}
             initial="hidden"
@@ -98,7 +95,7 @@ export default function AboutSection() {
           <div className="row g-4 mt-3 text-center">
             {highlights.map((box, idx) => (
               <motion.div
-                className="col-md-4"
+                className="col-12 col-sm-6 col-lg-4"
                 key={idx}
                 variants={fadeUp}
                 initial="hidden"
@@ -107,11 +104,8 @@ export default function AboutSection() {
                 viewport={{ once: false }}
               >
                 <div
-                  className="p-3 rounded-3"
-                  style={{
-                    transition: "all 0.3s ease",
-                    cursor: "pointer",
-                  }}
+                  className="p-3 rounded-3 h-100"
+                  style={{ transition: "all 0.3s ease", cursor: "pointer" }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = "#eef6ff";
                     e.currentTarget.style.boxShadow =
@@ -143,11 +137,11 @@ export default function AboutSection() {
 
           {/* Closing Statement */}
           <motion.p
-            className="mt-4 text-center fw-semibold"
+            className="mt-4 text-center fw-semibold px-2"
             style={{
               lineHeight: "1.75",
               color: "#42506a",
-              fontSize: "1.05rem",
+              fontSize: "1rem",
             }}
             variants={fadeUp}
             initial="hidden"

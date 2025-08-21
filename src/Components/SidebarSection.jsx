@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X, Github, Linkedin, Instagram } from "lucide-react";
 
 export default function SidebarSection({ menuItems, active, setActive, progress }) {
   const [open, setOpen] = useState(false);
+  const sidebarRef = useRef(null);
 
   const socialLinks = {
     github: "https://github.com/dhruvpatel1403",
@@ -10,8 +11,20 @@ export default function SidebarSection({ menuItems, active, setActive, progress 
     instagram: "https://instagram.com/dhruvpatel_1403",
   };
 
+  // Close sidebar when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (open && sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [open]);
+
   return (
     <div
+      ref={sidebarRef}
       className="d-flex flex-column position-fixed"
       style={{
         width: open ? "240px" : "72px",
@@ -63,6 +76,7 @@ export default function SidebarSection({ menuItems, active, setActive, progress 
               onClick={() => {
                 document.getElementById(item.name).scrollIntoView({ behavior: "smooth" });
                 setActive(item.name);
+                setOpen(false); // auto-close when user clicks menu item
               }}
               className="d-flex align-items-center mb-2 p-2 rounded-3 fw-medium"
               style={{
@@ -144,14 +158,6 @@ export default function SidebarSection({ menuItems, active, setActive, progress 
             color: "#182848",
             transition: "all 0.3s ease",
           }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#d6e8ff";
-            e.currentTarget.style.transform = "scale(1.1)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "#e6f0ff";
-            e.currentTarget.style.transform = "scale(1)";
-          }}
         >
           <Github size={18} />
         </a>
@@ -167,14 +173,6 @@ export default function SidebarSection({ menuItems, active, setActive, progress 
             color: "#182848",
             transition: "all 0.3s ease",
           }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#d6e8ff";
-            e.currentTarget.style.transform = "scale(1.1)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "#e6f0ff";
-            e.currentTarget.style.transform = "scale(1)";
-          }}
         >
           <Linkedin size={18} />
         </a>
@@ -189,14 +187,6 @@ export default function SidebarSection({ menuItems, active, setActive, progress 
             padding: "6px",
             color: "#182848",
             transition: "all 0.3s ease",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#d6e8ff";
-            e.currentTarget.style.transform = "scale(1.1)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "#e6f0ff";
-            e.currentTarget.style.transform = "scale(1)";
           }}
         >
           <Instagram size={18} />
