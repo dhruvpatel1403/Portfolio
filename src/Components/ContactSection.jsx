@@ -1,15 +1,21 @@
-import { Card, Form, Button } from "react-bootstrap";
+import { Card, Form, Button, Alert } from "react-bootstrap";
 import { useState } from "react";
 
 export default function ContactSection() {
   const [hover, setHover] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // stop page reload
+    setSubmitted(true);
+
+    // Reset message after 3s (optional)
+    setTimeout(() => setSubmitted(false), 3000);
+  };
 
   return (
     <div className="container py-5">
-      <h2
-        className="fw-bold mb-4 text-center"
-        style={{ color: "#182848" }}
-      >
+      <h2 className="fw-bold mb-4 text-center" style={{ color: "#182848" }}>
         Contact <span style={{ color: "#0396ff" }}>Me</span>
       </h2>
 
@@ -29,7 +35,16 @@ export default function ContactSection() {
         onMouseLeave={() => setHover(false)}
       >
         <Card.Body>
-          <Form>
+          {submitted && (
+            <Alert
+              variant="success"
+              className="text-center fw-semibold rounded-3"
+            >
+              ✅ Message sent successfully!
+            </Alert>
+          )}
+
+          <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formName">
               <Form.Label>Name</Form.Label>
               <Form.Control type="text" placeholder="Enter your name" required />
@@ -37,7 +52,11 @@ export default function ContactSection() {
 
             <Form.Group className="mb-3" controlId="formEmail">
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Enter your email" required />
+              <Form.Control
+                type="email"
+                placeholder="Enter your email"
+                required
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formSubject">
@@ -47,7 +66,12 @@ export default function ContactSection() {
 
             <Form.Group className="mb-3" controlId="formMessage">
               <Form.Label>Message</Form.Label>
-              <Form.Control as="textarea" rows={4} placeholder="Write your message..." required />
+              <Form.Control
+                as="textarea"
+                rows={4}
+                placeholder="Write your message..."
+                required
+              />
             </Form.Group>
 
             <div className="text-center">
