@@ -1,11 +1,19 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+import {
+  FaHome,
+  FaUser,
+  FaFileAlt,
+  FaStar,
+  FaBriefcase,
+  FaPhone,
+} from "react-icons/fa";
+
 import AboutSection from "./Components/AboutSection";
 import SkillsSection from "./Components/SkillsSection";
 import ContactSection from "./Components/ContactSection";
 import ResumeSection from "./Components/ResumeSection";
 import SidebarSection from "./Components/SidebarSection";
-import { useState, useEffect, useRef } from "react";
-import { Home, User, FileText, Star, Briefcase, Phone, Terminal } from "lucide-react";
 import HomeSection from "./Components/HomeSection";
 import ProjectSection from "./Components/ProjectSection";
 import CLITerminal from "./Components/CLITerminal";
@@ -16,12 +24,12 @@ export default function App() {
   const sectionsRef = useRef([]);
 
   const menuItems = [
-    { name: "Home", icon: <Home size={20} /> },
-    { name: "About", icon: <User size={20} /> },
-    { name: "Resume", icon: <FileText size={20} /> },
-    { name: "Skills", icon: <Star size={20} /> },
-    { name: "Projects", icon: <Briefcase size={20} /> },
-    { name: "Contact", icon: <Phone size={20} /> },
+    { name: "Home", icon: <FaHome size={18} /> },
+    { name: "About", icon: <FaUser size={18} /> },
+    { name: "Resume", icon: <FaFileAlt size={18} /> },
+    { name: "Skills", icon: <FaStar size={18} /> },
+    { name: "Projects", icon: <FaBriefcase size={18} /> },
+    { name: "Contact", icon: <FaPhone size={18} /> },
   ];
 
   useEffect(() => {
@@ -96,10 +104,7 @@ export default function App() {
                     }
                   >
                     {item.name === "Home" ? (
-                      <div>
-                        <HomeSection />
-                        
-                      </div>
+                      <HomeSection />
                     ) : item.name === "About" ? (
                       <AboutSection />
                     ) : item.name === "Skills" ? (

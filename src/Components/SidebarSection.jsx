@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, Github, Linkedin, Instagram } from "lucide-react";
+import { FaBars, FaTimes, FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 export default function SidebarSection({ menuItems, active, setActive, progress }) {
   const [open, setOpen] = useState(false);
@@ -47,23 +47,33 @@ export default function SidebarSection({ menuItems, active, setActive, progress 
           </h1>
         )}
         <button
-          onClick={() => setOpen(!open)}
-          style={{
-            width: "38px",
-            height: "38px",
-            border: "none",
-            borderRadius: "50%",
-            background: "#e6f0ff",
-            color: "#182848",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            transition: "all 0.3s ease",
-            cursor: "pointer",
-          }}
-        >
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
+  onClick={() => setOpen(!open)}
+  style={{
+    width: "40px",
+    height: "40px",
+    border: "none",
+    borderRadius: "50%",
+    background: "#e6f0ff",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "pointer",
+  }}
+>
+  {open ? (
+            // X (Close) Icon
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#182848" viewBox="0 0 24 24">
+              <path d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7A1 1 0 0 0 5.7 7.11L10.59 12l-4.89 4.89a1 1 0 1 0 1.41 1.41L12 13.41l4.89 4.89a1 1 0 0 0 1.41-1.41L13.41 12l4.89-4.89a1 1 0 0 0 0-1.4z"/>
+            </svg>
+          ) : (
+            // Hamburger Icon
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#182848" viewBox="0 0 24 24">
+              <path d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/>
+            </svg>
+          )}
+</button>
+
+
       </div>
 
       {/* Menu */}
@@ -159,7 +169,7 @@ export default function SidebarSection({ menuItems, active, setActive, progress 
             transition: "all 0.3s ease",
           }}
         >
-          <Github size={18} />
+          <FaGithub size={18} color="#182848" />
         </a>
         <a
           href={socialLinks.linkedin}
@@ -174,7 +184,7 @@ export default function SidebarSection({ menuItems, active, setActive, progress 
             transition: "all 0.3s ease",
           }}
         >
-          <Linkedin size={18} />
+          <FaLinkedin size={18} color="#182848" />
         </a>
         <a
           href={socialLinks.instagram}
@@ -189,7 +199,7 @@ export default function SidebarSection({ menuItems, active, setActive, progress 
             transition: "all 0.3s ease",
           }}
         >
-          <Instagram size={18} />
+          <FaInstagram size={18} color="#182848" />
         </a>
       </div>
     </div>

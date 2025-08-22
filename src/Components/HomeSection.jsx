@@ -65,16 +65,18 @@ export default function HomeSection() {
       {/* ✅ Floating Projects Button (only visible in Home) */}
       {visible && (
         <motion.a
-          href="#portfolio"
-          className="project-float-btn"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <span className="btn-text">Projects</span>
-          <span className="btn-ring"></span>
-          <span className="btn-dot"></span>
-        </motion.a>
+  href="#portfolio"
+  className="project-float-btn"
+  initial={{ scale: 0.8, opacity: 0 }}
+  animate={{ scale: 1, opacity: 1 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+>
+  <div className="btn-inner">
+    <span className="btn-text">Projects</span>
+    <span className="btn-ring"></span>
+    <span className="btn-dot"></span>
+  </div>
+</motion.a>
       )}
 
       <Card
