@@ -139,6 +139,18 @@ export default function HomeSection() {
                 </Button>
               </Link>
             </motion.div>
+            <motion.div
+  className="mt-3"
+  initial={{ scale: 0.9, opacity: 0 }}
+  animate={{ scale: 1, opacity: 1 }}
+  transition={{ duration: 0.6, delay: 0.5 }}
+>
+  <Link to="/game">
+    <Button className="d-flex align-items-center gap-2 px-4 py-2" variant="success">
+      🎮 Go into Game Mode
+    </Button>
+  </Link>
+</motion.div>
 
             {/*  Social Buttons */}
             <motion.div

@@ -20,19 +20,35 @@ const highlights = [
 
 const fadeDown = {
   hidden: { opacity: 0, y: -40 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 20 } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 70, damping: 20 },
+  },
 };
 const fadeLeft = {
-  hidden: { opacity: 0, x: -80 },
-  show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 90, damping: 18 } },
+  hidden: { opacity: 0, x: -60 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: { type: "spring", stiffness: 70, damping: 18 },
+  },
 };
 const fadeRight = {
-  hidden: { opacity: 0, x: 80 },
-  show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 90, damping: 18 } },
+  hidden: { opacity: 0, x: 60 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: { type: "spring", stiffness: 70, damping: 18 },
+  },
 };
 const fadeUp = {
-  hidden: { opacity: 0, y: 60 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 18 } },
+  hidden: { opacity: 0, y: 50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 80, damping: 18 },
+  },
 };
 
 export default function AboutSection() {
@@ -51,7 +67,7 @@ export default function AboutSection() {
         <Card.Body>
           {/* Title */}
           <motion.h2
-            className="fw-bold mb-4 text-center"
+            className="fw-bold mb-4 text-center fs-2 fs-md-1"
             style={{ letterSpacing: "1px", color: "#182848" }}
             variants={fadeDown}
             initial="hidden"
@@ -63,8 +79,8 @@ export default function AboutSection() {
 
           {/* Summary */}
           <motion.p
-            className="lead mb-4 text-center px-2"
-            style={{ lineHeight: "1.8", color: "#34435e", fontSize: "1.05rem" }}
+            className="lead mb-4 text-center px-2 fs-6 fs-md-5"
+            style={{ lineHeight: "1.8", color: "#34435e" }}
             variants={fadeLeft}
             initial="hidden"
             whileInView="show"
@@ -77,8 +93,8 @@ export default function AboutSection() {
           </motion.p>
 
           <motion.p
-            className="mb-4 text-center px-2"
-            style={{ lineHeight: "1.8", color: "#42506a", fontSize: "1rem" }}
+            className="mb-4 text-center px-2 fs-6 fs-md-5"
+            style={{ lineHeight: "1.8", color: "#42506a" }}
             variants={fadeRight}
             initial="hidden"
             whileInView="show"
@@ -103,19 +119,18 @@ export default function AboutSection() {
                 transition={{ delay: idx * 0.2 }}
                 viewport={{ once: false }}
               >
-                <div
-                  className="p-3 rounded-3 h-100"
-                  style={{ transition: "all 0.3s ease", cursor: "pointer" }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = "#eef6ff";
-                    e.currentTarget.style.boxShadow =
-                      "0 6px 18px rgba(3, 150, 255, 0.2)";
-                    e.currentTarget.style.transform = "scale(1.05)";
+                <motion.div
+                  whileHover={{
+                    scale: 1.06,
+                    backgroundColor: "#eef6ff",
+                    boxShadow: "0 6px 18px rgba(3, 150, 255, 0.25)",
                   }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "transparent";
-                    e.currentTarget.style.boxShadow = "none";
-                    e.currentTarget.style.transform = "scale(1)";
+                  whileTap={{ scale: 0.97 }}
+                  className="p-3 rounded-3 h-100"
+                  style={{
+                    transition: "all 0.35s ease",
+                    cursor: "pointer",
+                    willChange: "transform, background-color, box-shadow",
                   }}
                 >
                   <h6
@@ -130,18 +145,17 @@ export default function AboutSection() {
                   >
                     {box.text}
                   </p>
-                </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>
 
           {/* Closing Statement */}
           <motion.p
-            className="mt-4 text-center fw-semibold px-2"
+            className="mt-4 text-center fw-semibold px-2 fs-6 fs-md-5"
             style={{
               lineHeight: "1.75",
               color: "#42506a",
-              fontSize: "1rem",
             }}
             variants={fadeUp}
             initial="hidden"

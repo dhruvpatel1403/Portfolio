@@ -17,6 +17,7 @@ import SidebarSection from "./Components/SidebarSection";
 import HomeSection from "./Components/HomeSection";
 import ProjectSection from "./Components/ProjectSection";
 import CLITerminal from "./Components/CLITerminal";
+import GamePage from "./Components/GamePage";
 
 export default function App() {
   const [active, setActive] = useState("Home");
@@ -132,6 +133,7 @@ export default function App() {
 
         {/* ✅ CLI Page */}
         <Route path="/cli" element={<CLITerminal />} />
+        <Route path="/game" element={<GamePage />} />
       </Routes>
     </Router>
   );

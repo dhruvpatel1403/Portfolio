@@ -41,22 +41,22 @@ const timelineData = [
 ];
 
 const leftVariant = {
-  hidden: { opacity: 0, x: -120, scale: 0.9 },
+  hidden: { opacity: 0, x: -100, scale: 0.95 },
   show: {
     opacity: 1,
     x: 0,
     scale: 1,
-    transition: { type: "spring", stiffness: 90, damping: 18 },
+    transition: { type: "spring", stiffness: 70, damping: 20 },
   },
 };
 
 const rightVariant = {
-  hidden: { opacity: 0, x: 120, scale: 0.9 },
+  hidden: { opacity: 0, x: 100, scale: 0.95 },
   show: {
     opacity: 1,
     x: 0,
     scale: 1,
-    transition: { type: "spring", stiffness: 90, damping: 18 },
+    transition: { type: "spring", stiffness: 70, damping: 20 },
   },
 };
 
@@ -71,7 +71,7 @@ export default function Resume() {
       }}
     >
       <h2
-        className="fw-bold text-center mb-5"
+        className="fw-bold text-center mb-5 fs-2 fs-md-1"
         style={{ color: "#182848", letterSpacing: "1.2px", fontWeight: "700" }}
       >
         Education & Experience
@@ -94,24 +94,20 @@ export default function Resume() {
                 key={index}
                 className="mb-5 position-relative p-3 rounded-3"
                 style={{
-                  transition: "all 0.3s ease",
+                  transition: "all 0.35s ease",
+                  willChange: "transform, background-color, box-shadow",
                   cursor: "pointer",
                 }}
                 variants={index % 2 === 0 ? leftVariant : rightVariant} 
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: false, amount: 0.3 }} 
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#eef6ff";
-                  e.currentTarget.style.boxShadow =
-                    "0 6px 18px rgba(3, 150, 255, 0.2)";
-                  e.currentTarget.style.transform = "scale(1.02)";
+                whileHover={{
+                  scale: 1.03,
+                  backgroundColor: "#eef6ff",
+                  boxShadow: "0 6px 18px rgba(3, 150, 255, 0.25)",
                 }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "transparent";
-                  e.currentTarget.style.boxShadow = "none";
-                  e.currentTarget.style.transform = "scale(1)";
-                }}
+                whileTap={{ scale: 0.98 }}
               >
                 {/* Dot */}
                 <span
@@ -173,7 +169,7 @@ export default function Resume() {
                     {item.highlights.map((point, i) => (
                       <li
                         key={i}
-                        style={{ marginBottom: "6px", lineHeight: "1.4" }}
+                        style={{ marginBottom: "6px", lineHeight: "1.5" }}
                       >
                         {point}
                       </li>
