@@ -1,5 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-import { FaBars, FaTimes, FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { 
+  FaBars, 
+  FaTimes, 
+  FaGithub, 
+  FaLinkedin, 
+  FaInstagram,
+  FaCertificate   // ✅ added
+} from "react-icons/fa";
 
 export default function SidebarSection({ menuItems, active, setActive, progress }) {
   const [open, setOpen] = useState(false);
@@ -192,49 +199,13 @@ export default function SidebarSection({ menuItems, active, setActive, progress 
 
         {/* Social icons */}
         <div className="d-flex justify-content-center gap-3 p-3 border-top">
-          <a
-            href={socialLinks.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              border: "none",
-              background: "#e6f0ff",
-              borderRadius: "50%",
-              padding: "6px",
-              color: "#182848",
-              transition: "all 0.3s ease",
-            }}
-          >
+          <a href={socialLinks.github} target="_blank" rel="noopener noreferrer">
             <FaGithub size={18} color="#182848" />
           </a>
-          <a
-            href={socialLinks.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              border: "none",
-              background: "#e6f0ff",
-              borderRadius: "50%",
-              padding: "6px",
-              color: "#182848",
-              transition: "all 0.3s ease",
-            }}
-          >
+          <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
             <FaLinkedin size={18} color="#182848" />
           </a>
-          <a
-            href={socialLinks.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              border: "none",
-              background: "#e6f0ff",
-              borderRadius: "50%",
-              padding: "6px",
-              color: "#182848",
-              transition: "all 0.3s ease",
-            }}
-          >
+          <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer">
             <FaInstagram size={18} color="#182848" />
           </a>
         </div>

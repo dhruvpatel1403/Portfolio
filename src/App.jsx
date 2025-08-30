@@ -7,6 +7,7 @@ import {
   FaStar,
   FaBriefcase,
   FaPhone,
+  FaCertificate,   // ✅ new icon
 } from "react-icons/fa";
 
 import AboutSection from "./Components/AboutSection";
@@ -16,6 +17,7 @@ import ResumeSection from "./Components/ResumeSection";
 import SidebarSection from "./Components/SidebarSection";
 import HomeSection from "./Components/HomeSection";
 import ProjectSection from "./Components/ProjectSection";
+import CertificationSection from "./Components/CertificationSection"; // ✅ import
 import CLITerminal from "./Components/CLITerminal";
 import GamePage from "./Components/GamePage";
 
@@ -30,6 +32,7 @@ export default function App() {
     { name: "Resume", icon: <FaFileAlt size={18} /> },
     { name: "Skills", icon: <FaStar size={18} /> },
     { name: "Projects", icon: <FaBriefcase size={18} /> },
+    { name: "Certifications", icon: <FaCertificate size={18} /> }, // ✅ new
     { name: "Contact", icon: <FaPhone size={18} /> },
   ];
 
@@ -116,6 +119,8 @@ export default function App() {
                       <ResumeSection />
                     ) : item.name === "Projects" ? (
                       <ProjectSection />
+                    ) : item.name === "Certifications" ? (
+                      <CertificationSection />
                     ) : (
                       <>
                         <h1 className="display-5 fw-bold">{item.name} Section</h1>

@@ -1,0 +1,54 @@
+/* Certification Section */
+#certifications {
+  background: #ffffff;
+}
+
+#certifications h2 {
+  font-size: 2.2rem;
+  color: #182848;
+}
+
+#certifications p {
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+/* Card styling */
+#certifications .card {
+  border-radius: 1.25rem;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+#certifications .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(3, 150, 255, 0.25);
+}
+
+/* Image wrapper */
+#certifications .card img {
+  max-height: 180px;
+  max-width: 100%;
+  object-fit: contain;
+  padding: 10px;
+}
+
+/* Title */
+#certifications .card h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #182848;
+}
+
+/* Button */
+#certifications .btn-outline-dark {
+  border-radius: 30px;
+  padding: 6px 18px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease-in-out;
+}
+
+#certifications .btn-outline-dark:hover {
+  background-color: #182848;
+  color: #ffffff;
+}
