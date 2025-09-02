@@ -23,7 +23,7 @@ const timelineData = [
   },
   {
     period: "Jan 2024 – Dec 2024",
-    title: "Full-Stack Developer (Contract)",
+    title: "Software Developer (Contract)",
     institution: "Logistic Solutions Pvt Ltd",
     type: "Experience",
     highlights: [

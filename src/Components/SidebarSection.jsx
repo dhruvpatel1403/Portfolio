@@ -36,10 +36,16 @@ export default function SidebarSection({ menuItems, active, setActive, progress 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Close sidebar when clicking outside (only on mobile)
+  // Close sidebar when clicking outside (mobile + desktop)
   useEffect(() => {
     const handleClickOutside = (event) => {
+      // Mobile: original logic
       if (isMobile && open && sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+
+      // Desktop: shrink if expanded and clicked outside
+      if (!isMobile && open && sidebarRef.current && !sidebarRef.current.contains(event.target)) {
         setOpen(false);
       }
     };
@@ -100,6 +106,9 @@ export default function SidebarSection({ menuItems, active, setActive, progress 
             )}
             <button
               onClick={() => setOpen(!open)}
+              onMouseEnter={() => {
+                if (!isMobile && !open) setOpen(true); // auto expand on hover
+              }}
               style={{
                 width: "40px",
                 height: "40px",

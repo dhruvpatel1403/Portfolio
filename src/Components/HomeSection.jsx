@@ -145,11 +145,16 @@ export default function HomeSection() {
   animate={{ scale: 1, opacity: 1 }}
   transition={{ duration: 0.6, delay: 0.5 }}
 >
-  <Link to="/game">
-    <Button className="d-flex align-items-center gap-2 px-4 py-2" variant="success">
-      🎮 Go into Game Mode
-    </Button>
-  </Link>
+<a 
+  href="https://dinopatelgame.netlify.app/" 
+  target="_blank" 
+  rel="noopener noreferrer"
+>
+  <Button className="d-flex align-items-center gap-2 px-4 py-2" variant="success">
+    🎮 Go into Game Mode
+  </Button>
+</a>
+
 </motion.div>
 
             {/*  Social Buttons */}
