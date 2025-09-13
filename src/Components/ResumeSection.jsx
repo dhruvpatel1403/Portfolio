@@ -27,9 +27,11 @@ const timelineData = [
     institution: "Logistic Solutions Pvt Ltd",
     type: "Experience",
     highlights: [
-      "Developed scalable web applications and RESTful APIs using React.js, Node.js, and MongoDB.",
-      "Collaborated in Agile teams troubleshooting production issues and ensuring system reliability.",
-      "Implemented CI/CD pipelines with GitHub Actions and Docker for automated deployments.",
+      "Designed and developed scalable web applications to streamline logistics and supply chain operations.",
+"Built responsive front-end interfaces and robust back-end APIs, significantly enhancing user experience.",
+"Collaborated with cross-functional teams in an Agile/Scrum environment, optimising performance and accelerating delivery.",
+"Resolved production issues, ensuring smooth data flow and improving overall efficiency across the platform.",
+"Supported the development and integration of ML models to enhance decision-making, predictive analytics, and process automation within the logistics domain."
     ],
   },
   {
