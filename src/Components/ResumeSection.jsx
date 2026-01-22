@@ -12,7 +12,7 @@ const timelineData = [
   },
   {
     period: "Sep 2023 – Dec 2023",
-    title: "Cloud & ML Developer Intern",
+    title: " Developer Intern",
     institution: "Edunet Foundation",
     type: "Experience",
     highlights: [
@@ -22,8 +22,8 @@ const timelineData = [
     ],
   },
   {
-    period: "Jan 2024 – Dec 2024",
-    title: "Software Developer (Contract)",
+    period: "Jan 2024 – Jun 2024",
+    title: "Software Developer ",
     institution: "Logistic Solutions Pvt Ltd",
     type: "Experience",
     highlights: [
